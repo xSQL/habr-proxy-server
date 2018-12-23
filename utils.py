@@ -1,6 +1,7 @@
 """Project helpers & utilities"""
 
 import re
+
 from bs4 import BeautifulSoup
 
 from settings import SITES
@@ -27,7 +28,6 @@ class HabrParser(object):
 
         #'html.parse' not used because he have bug with html-entities (&plus;)
         soup = BeautifulSoup(text, features="lxml")
-        print(soup)
         to_replace = soup.find_all(text=re.compile(r'(\s|^)[A-z0-9А-я]{6}(\s|$)'))
         for line in to_replace:
             if line.parent.name not in ('script', 'style'):

@@ -54,7 +54,7 @@ class TestStringMethods(unittest.TestCase):
     def test_centertrade(self):
         """Test adding custom chars"""
 
-        input = '<body>My name is Marlin and i am a student</body>'.encode('utf-8')
+        input = '<body>My name is Marlin and i am a boy</body>'.encode('utf-8')
         marked = str(HabrParser.mark_special_words(input))
         self.assertNotEqual(marked.find('Marlin&trade;'), -1)
 
