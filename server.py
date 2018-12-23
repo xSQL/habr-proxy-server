@@ -14,9 +14,9 @@ class HabrProxy(http.server.SimpleHTTPRequestHandler):
         """Main proxy logic"""
 
         params = self.path.split('/')
-
         site = SITES.get(params[1])
         path_params = '/'.join(params[2:])
+
         if not site:
             site = SITES.get('')
             path_params = '/'.join(params[1:])
@@ -37,7 +37,6 @@ class HabrProxy(http.server.SimpleHTTPRequestHandler):
         self.send_response(200)
         self.send_header('Content-type', content_type)
         self.end_headers()
-
         self.wfile.write(content)
         return
 
